@@ -19,6 +19,7 @@ IF "%PYTHON_ARCH%"=="64" (
         "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.Cmd" /x64 /release
     ) ELSE (
         ECHO Unexpected Python major version number: %PYTHON_VERSION_MAJOR%
+        EXIT 1
     )
 ) ELSE (
     ECHO Using default MSVC build environment for 32bit architecture
