@@ -4,6 +4,10 @@ environment:
       PYTHON_VERSION: "2.7.8"
       PYTHON_ARCH: "32"
 
+    - PYTHON: "C:\\Python27-64"
+      PYTHON_VERSION: "2.7.8"
+      PYTHON_ARCH: "64"
+
     - PYTHON: "C:\\Python34"
       PYTHON_VERSION: "3.4.1"
       PYTHON_ARCH: "32"
@@ -17,7 +21,7 @@ init:
 
 install:
   - "powershell appveyor/install.ps1"
-  - "appveyor/setup_build_env.cmd %PYTHON_ARCH%"
+  - "appveyor/setup_build_env.cmd"
   - "%PYTHON%/Scripts/pip install -r dev-requirements.txt"
 
 build: false  # Not a C# project, build stuff at the test step instead.
