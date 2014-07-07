@@ -8,9 +8,6 @@
 IF "%PYTHON_ARCH%"=="64" (
     ECHO Configuring environment to build with 64bit architecture
     SET DISTUTILS_USE_SDK=1
-    SET PYTHON_VERSION_MAJOR=%PYTHON_VERSION:~1,2%
-    ECHO Python version: %PYTHON_VERSION%
-    ECHO Python major version: %PYTHON_VERSION_MAJOR%
     IF "%PYTHON_VERSION_MAJOR%"=="2" (
         ECHO Using Windows SDK v7.0 for Python 2 compatible build
         "C:\Program Files\Microsoft SDKs\Windows\v7.0\Bin\SetEnv.Cmd" /x64 /release
