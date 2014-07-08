@@ -8,15 +8,17 @@
 IF "%PYTHON_ARCH%"=="64" (
     ECHO Configuring environment to build with MSVC on a 64bit architecture
     IF "%PYTHON_VERSION_MAJOR%"=="2" (
-        SET SDK_VERSION="v7.0"
+        SET _SDK_VERSION=v7.0
     ) ELSE IF "%PYTHON_VERSION_MAJOR%"=="3" (
-        SET SDK_VERSION="v7.1"
+        SET _SDK_VERSION=v7.1
     ) ELSE (
         ECHO Unexpected Python major version number: %PYTHON_VERSION_MAJOR%
         EXIT 1
     )
-    ECHO Using Windows SDK %SDK_VERSION% for Python %PYTHON_VERSION_MAJOR% build
-    %COMSPEC% /E:ON /V:ON /K "%PROGRAMFILES%\Microsoft SDKs\Windows\%SDK_VERSION%\Bin\SetEnv.cmd"
+    ECHO Using Windows SDK %_SDK_VERSION% for Python %PYTHON_VERSION_MAJOR% build
+    ECHO %PROGRAMFILES%\Microsoft SDKs\Windows\%_SDK_VERSION%\Bin\SetEnv.cmd
+    ECHO %COMSPEC%
+    %COMSPEC% /E:ON /V:ON /K "%PROGRAMFILES%\Microsoft SDKs\Windows\%_SDK_VERSION%\Bin\SetEnv.cmd"
     setenv /x64 /release
     SET DISTUTILS_USE_SDK=1
     SET MSSdk=1
