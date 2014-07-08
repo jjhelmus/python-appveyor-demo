@@ -30,15 +30,15 @@ init:
 
 install:
   - "powershell appveyor/install.ps1"
-  - "%CMD_IN_ENV% %PYTHON%/Scripts/pip install -r dev-requirements.txt"
+  - "%CMD_IN_ENV% %PYTHON%\\Scripts\\pip.exe install -r dev-requirements.txt"
 
 build: false  # Not a C# project, build stuff at the test step instead.
 
 test_script:
-  - "%CMD_IN_ENV% %PYTHON%/python setup.py nosetests"
+  - "%CMD_IN_ENV% %PYTHON%\\python.exe setup.py nosetests"
 
 after_test:
-  - "%CMD_IN_ENV% %PYTHON%/python setup.py bdist_wheel"
+  - "%CMD_IN_ENV% %PYTHON%\\python.exe setup.py bdist_wheel"
   - ps: "ls dist"
 
 artifacts:
