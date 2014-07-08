@@ -16,9 +16,7 @@ IF "%PYTHON_ARCH%"=="64" (
         EXIT 1
     )
     ECHO Using Windows SDK %_SDK_VERSION% for Python %PYTHON_VERSION_MAJOR% build
-    ECHO %PROGRAMFILES%\Microsoft SDKs\Windows\%_SDK_VERSION%\Bin\SetEnv.cmd
-    ECHO %COMSPEC%
-    %COMSPEC% /E:ON /V:ON /K "%PROGRAMFILES%\Microsoft SDKs\Windows\%_SDK_VERSION%\Bin\SetEnv.cmd"
+    %COMSPEC% /E:ON /V:ON /K "C:\Program Files\Microsoft SDKs\Windows\%_SDK_VERSION%\Bin\SetEnv.cmd"
     setenv /x64 /release
     SET DISTUTILS_USE_SDK=1
     SET MSSdk=1
