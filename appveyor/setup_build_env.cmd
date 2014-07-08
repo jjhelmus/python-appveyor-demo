@@ -8,9 +8,9 @@
 IF "%PYTHON_ARCH%"=="64" (
     ECHO Configuring environment to build with MSVC on a 64bit architecture
     IF "%PYTHON_VERSION_MAJOR%"=="2" (
-        SET SDK_VERSION=v7.0
+        SET SDK_VERSION="v7.0"
     ) ELSE IF "%PYTHON_VERSION_MAJOR%"=="3" (
-        SET SDK_VERSION=v7.1
+        SET SDK_VERSION="v7.1"
     ) ELSE (
         ECHO Unexpected Python major version number: %PYTHON_VERSION_MAJOR%
         EXIT 1
