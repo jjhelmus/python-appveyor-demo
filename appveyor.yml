@@ -26,10 +26,9 @@ environment:
 init:
   - "ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
   - "ECHO %CMD_IN_ENV%"
-  - "ls C:/Program Files
+  - "ls C:/Program Files/Microsoft SDKs/Windows"
 
 install:
-  - "cmd /E:ON /V:ON /C appveyor/run_with_env.cmd C:Python27/python --version"
   - "powershell appveyor/install.ps1"
   - "%CMD_IN_ENV% %PYTHON%/Scripts/pip install -r dev-requirements.txt"
 
