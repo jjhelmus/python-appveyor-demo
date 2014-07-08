@@ -8,8 +8,7 @@
 IF "%PYTHON_ARCH%"=="64" (
     ECHO Configuring environment to build with MSVC on a 64bit architecture
     ECHO Using Windows SDK %WINDOWS_SDK_VERSION%
-    cmd /E:ON /V:ON "C:\Program Files\Microsoft SDKs\Windows\%WINDOWS_SDK_VERSION%\Bin\SetEnv.cmd"
-    setenv /x64 /release
+    "C:\Program Files\Microsoft SDKs\Windows\%WINDOWS_SDK_VERSION%\Bin\SetEnv.cmd" /x64 /release
     SET DISTUTILS_USE_SDK=1
     SET MSSdk=1
 ) ELSE (
