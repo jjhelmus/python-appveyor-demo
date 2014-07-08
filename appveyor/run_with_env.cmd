@@ -5,7 +5,7 @@
 :: More details at:
 :: https://github.com/cython/cython/wiki/64BitCythonExtensionsOnWindows
 
-SET COMMAND_TO_RUN="%*"
+SET COMMAND_TO_RUN=%*
 
 IF "%PYTHON_ARCH%"=="64" (
     ECHO Configuring environment to build with MSVC on a 64bit architecture
