@@ -13,6 +13,7 @@ IF "%PYTHON_ARCH%"=="64" (
     SET MSSdk=1
     ECHO Using Windows SDK %WINDOWS_SDK_VERSION%
     "C:\Program Files\Microsoft SDKs\Windows\%WINDOWS_SDK_VERSION%\Bin\SetEnv.cmd" /x64 /release
+    WindowsSdkVer.exe -version:%WINDOWS_SDK_VERSION%
     ECHO Executing: %COMMAND_TO_RUN%
     call %COMMAND_TO_RUN% || EXIT 1
     ECHO OK
