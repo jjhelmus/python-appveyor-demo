@@ -21,10 +21,8 @@ environment:
       PYTHON_VERSION: "3.4.1"
       PYTHON_ARCH: "64"
 
-init:
-  - "powershell ./appveyor/select_sdk.ps1"
-
 install:
+  - "powershell ./appveyor/select_sdk.ps1"
   - "powershell ./appveyor/install.ps1"
   - "%CMD_IN_ENV% %PYTHON%\\Scripts\\pip.exe install -r dev-requirements.txt"
 
