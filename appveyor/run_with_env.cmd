@@ -6,14 +6,15 @@
 :: https://github.com/cython/cython/wiki/64BitCythonExtensionsOnWindows
 
 SET COMMAND_TO_RUN=%*
+SET WIN_SDK_ROOT=C:\Program Files\Microsoft SDKs\Windows
 
 IF "%PYTHON_ARCH%"=="64" (
     ECHO Configuring environment to build with MSVC on a 64bit architecture
     SET DISTUTILS_USE_SDK=1
     SET MSSdk=1
     ECHO Using Windows SDK %WINDOWS_SDK_VERSION%
-    "C:\Program Files\Microsoft SDKs\Windows\%WINDOWS_SDK_VERSION%\Bin\SetEnv.cmd" /x64 /release
-    WindowsSdkVer.exe -version:%WINDOWS_SDK_VERSION%
+    "%WIN_SDK_ROOT%\%WINDOWS_SDK_VERSION%\Bin\SetEnv.cmd" /x64 /release
+    "%WIN_SDK_ROOT%\%WINDOWS_SDK_VERSION%\Setup\WindowsSdkVer.exe" -version:%WINDOWS_SDK_VERSION%
     ECHO Executing: %COMMAND_TO_RUN%
     call %COMMAND_TO_RUN% || EXIT 1
     ECHO OK
