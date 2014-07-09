@@ -4,6 +4,7 @@
 ::
 :: More details at:
 :: https://github.com/cython/cython/wiki/64BitCythonExtensionsOnWindows
+@ECHO OFF
 
 SET COMMAND_TO_RUN=%*
 SET WIN_SDK_ROOT=C:\Program Files\Microsoft SDKs\Windows
@@ -17,10 +18,8 @@ IF "%PYTHON_ARCH%"=="64" (
     "%WIN_SDK_ROOT%\%WINDOWS_SDK_VERSION%\Bin\SetEnv.cmd" /x64 /release
     ECHO Executing: %COMMAND_TO_RUN%
     call %COMMAND_TO_RUN% || EXIT 1
-    ECHO OK
 ) ELSE (
     ECHO Using default MSVC build environment for 32bit architecture
     ECHO Executing: %COMMAND_TO_RUN%
     call %COMMAND_TO_RUN% || EXIT 1
-    ECHO OK
 )
