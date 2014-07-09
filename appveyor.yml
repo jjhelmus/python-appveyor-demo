@@ -23,9 +23,8 @@ environment:
       PYTHON_ARCH: "64"
 
 install:
-  # Select the version of the Windows SDK that match the target Python version
-  # and architecture.
-  - "powershell ./appveyor/select_sdk.ps1"
+  - ECHO "Installed SDKs:"
+  - ps: "ls \"C:/Program Files/Microsoft SDKs/Windows\""
 
   # Install Python (from the official .msi of http://python.org) and pip when
   # not already installed.
